@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminhão Pipa no Rio de Janeiro | Orla Rio - Entrega Rápida de Água</title>
+    <meta name="description" content="Ficou sem água no Rio de Janeiro? Caminhão pipa com entrega rápida para residências, condomínios e empresas. Atendimento em toda região metropolitana.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background-color: #08090C;
+            color: #F2F4F8;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(8, 9, 12, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(77, 159, 255, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #F2F4F8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo-accent {
+            color: #1A6FD4;
+        }
+
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #1A6FD4;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #F2F4F8;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-phone:hover {
+            background: #4D9FFF;
+            transform: translateY(-2px);
+        }
+
+        /* Hero */
+        .hero {
+            margin-top: 80px;
+            padding: 80px 20px 60px;
+            background: linear-gradient(135deg, rgba(26, 111, 212, 0.05) 0%, rgba(8, 9, 12, 0.95) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 111, 212, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            background: rgba(245, 197, 66, 0.15);
+            color: #F5C542;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 24px;
+            color: #F2F4F8;
+            line-height: 1.1;
+        }
+
+        .hero h1 .highlight {
+            color: #4D9FFF;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #8892A4;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .proof-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 32px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(77, 159, 255, 0.1);
+            border-bottom: 1px solid rgba(77, 159, 255, 0.1);
+        }
+
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .proof-icon {
+            width: 24px;
+            height: 24px;
+            color: #F5C542;
+        }
+
+        .proof-text {
+            font-size: 15px;
+            color: #F2F4F8;
+            font-weight: 500;
+        }
+
+        .location-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+
+        .location-tag {
+            background: rgba(26, 111, 212, 0.15);
+            color: #4D9FFF;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid rgba(77, 159, 255, 0.2);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Barlow', sans-serif;
+        }
+
+        .btn-primary {
+            background: #1A6FD4;
+            color: #F2F4F8;
+        }
+
+        .btn-primary:hover {
+            background: #4D9FFF;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(26, 111, 212, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #F2F4F8;
+            border: 2px solid #4D9FFF;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(77, 159, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Seção de Dores */
+        .pain-section {
+            padding: 80px 20px;
+            background: #08090C;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-eyebrow {
+            color: #1A6FD4;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            margin-bottom: 16px;
+            color: #F2F4F8;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #8892A4;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pain-card {
+            background: linear-gradient(135deg, rgba(26, 111, 212, 0.05) 0%, rgba(8, 9, 12, 0.8) 100%);
+            border: 1px solid rgba(77, 159, 255, 0.15);
+            padding: 32px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(77, 159, 255, 0.4);
+            box-shadow: 0 8px 24px rgba(26, 111, 212, 0.2);
+        }
+
+        .pain-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(245, 197, 66, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #F5C542;
+            font-size: 24px;
+        }
+
+        .pain-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #F2F4F8;
+        }
+
+        .pain-card p {
+            color: #8892A4;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Reviews */
+        .reviews-section {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #08090C 0%, rgba(26, 111, 212, 0.03) 100%);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: rgba(242, 244, 248, 0.03);
+            border: 1px solid rgba(77, 159, 255, 0.1);
+            padding: 28px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1A6FD4 0%, #4D9FFF 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            color: #F2F4F8;
+        }
+
+        .review-info {
+            flex: 1;
+        }
+
+        .review-name {
+            font-weight: 700;
+            font-size: 16px;
+            color: #F2F4F8;
+            margin-bottom: 4px;
+        }
+
+        .review-stars {
+            color: #F5C542;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            color: #8892A4;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .review-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #8892A4;
+            font-weight: 500;
+        }
+
+        .google-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Como Funciona */
+        .process-section {
+            padding: 80px 20px;
+            background: #08090C;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-number {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #1A6FD4 0%, #4D9FFF 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: #F2F4F8;
+            margin: 0 auto 20px;
+            font-family: 'Barlow Condensed', sans-serif;
+        }
+
+        .process-step h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #F2F4F8;
+        }
+
+        .process-step p {
+            color: #8892A4;
+            font-size: 15px;
+        }
+
+        /* Área de Cobertura */
+        .coverage-section {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, rgba(26, 111, 212, 0.03) 0%, #08090C 100%);
+        }
+
+        .coverage-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .coverage-tag {
+            background: rgba(26, 111, 212, 0.1);
+            color: #F2F4F8;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            border: 1px solid rgba(77, 159, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .coverage-tag:hover {
+            background: rgba(26, 111, 212, 0.2);
+            border-color: #4D9FFF;
+            transform: translateY(-2px);
+        }
+
+        /* Mapa */
+        .map-section {
+            padding: 80px 20px;
+            background: #08090C;
+        }
+
+        .map-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            height: 500px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid rgba(77, 159, 255, 0.2);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: invert(90%) hue-rotate(180deg) saturate(0.7) brightness(0.85);
+        }
+
+        .radar {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            pointer-events: none;
+        }
+
+        .radar-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid rgba(26, 111, 212, 0.4);
+            border-radius: 50%;
+            animation: radar-pulse 3s ease-out infinite;
+        }
+
+        .radar-ring:nth-child(1) {
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+        }
+
+        .radar-ring:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            animation-delay: 1s;
+        }
+
+        .radar-ring:nth-child(3) {
+            width: 180px;
+            height: 180px;
+            animation-delay: 2s;
+        }
+
+        @keyframes radar-pulse {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.5);
+            }
+        }
+
+        .radar-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background: #1A6FD4;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(26, 111, 212, 0.8);
+        }
+
+        /* CTA Final */
+        .cta-final {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, rgba(26, 111, 212, 0.1) 0%, rgba(8, 9, 12, 0.95) 100%);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-final h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #F2F4F8;
+        }
+
+        .cta-final p {
+            font-size: 20px;
+            color: #8892A4;
+            margin-bottom: 32px;
+        }
+
+        .payment-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+            color: #8892A4;
+            font-size: 15px;
+        }
+
+        .payment-info svg {
+            width: 20px;
+            height: 20px;
+            color: #F5C542;
+        }
+
+        /* Footer */
+        footer {
+            background: #08090C;
+            border-top: 1px solid rgba(77, 159, 255, 0.1);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: #F2F4F8;
+        }
+
+        .footer-brand p {
+            color: #8892A4;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .footer-contact h4 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: #F2F4F8;
+        }
+
+        .footer-contact p {
+            color: #8892A4;
+            font-size: 15px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-contact a {
+            color: #4D9FFF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: #F5C542;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(77, 159, 255, 0.1);
+            color: #8892A4;
+            font-size: 14px;
+        }
+
+        .footer-bottom a {
+            color: #4D9FFF;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-bottom a:hover {
+            color: #F5C542;
+        }
+
+        /* WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            cursor: pointer;
+            animation: pulse 2s ease-in-out infinite;
+            text-decoration: none;
+        }
+
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            }
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .nav-phone span {
+                display: none;
+            }
+
+            .proof-bar {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .cta-final h2 {
+                font-size: 32px;
+            }
+
+            .map-container {
+                height: 400px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <span class="logo-accent">ORLA</span> RIO
+            </div>
+            <a href="tel:+552131548282" class="nav-phone">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+                <span>(21) 3154-8282</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-eyebrow">⚠️ Problema Urgente</div>
+                <h1 class="reveal">Ficou sem água na <span class="highlight">Zona Oeste do Rio?</span></h1>
+                <p class="hero-subtitle reveal">Não espere horas pela concessionária. Receba água potável no mesmo dia com caminhão pipa profissional.</p>
+                
+                <div class="proof-bar reveal">
+                    <div class="proof-item">
+                        <svg class="proof-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="proof-text">Centenas de famílias atendidas</span>
+                    </div>
+                    <div class="proof-item">
+                        <svg class="proof-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="proof-text">Entrega no mesmo dia</span>
+                    </div>
+                    <div class="proof-item">
+                        <svg class="proof-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="proof-text">4.2★ no Google (90 avaliações)</span>
+                    </div>
+                </div>
+
+                <div class="location-tags reveal">
+                    <div class="location-tag">📍 Barra da Tijuca</div>
+                    <div class="location-tag">📍 Jacarepaguá</div>
+                    <div class="location-tag">📍 Recreio dos Bandeirantes</div>
+                    <div class="location-tag">📍 Vargem Grande</div>
+                    <div class="location-tag">📍 Região Metropolitana</div>
+                </div>
+
+                <div class="hero-buttons reveal">
+                    <a href="https://wa.me/552131548282" class="btn btn-primary">
+                        <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        Solicitar Caminhão Pipa Agora
+                    </a>
